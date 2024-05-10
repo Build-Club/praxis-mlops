@@ -2,15 +2,16 @@
 requires = ["setuptools>=40.6.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
-[tool.setuptools]
+[project]
 name = "praxis-mlops"
 version = "0.1.0"
 description = "A utility library for MLOps with virtual environment management and integrated logging."
-long_description = "file: README.md"
-long_description_content_type = "text/markdown"
-author = "Your Name"
-author_email = "your.email@example.com"
-url = "https://github.com/yourusername/praxis-mlops"
+authors = [
+    { name = "Build Club", email = "info@buildclub.com.au" }
+]
+readme = "README.md"
+license = { file = "LICENSE" }
+keywords = ["mlops", "mlflow", "wandb", "logging", "environment"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
@@ -23,21 +24,23 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11"
 ]
-keywords = "mlops, mlflow, wandb, logging, environment"
-packages = ["."]
-install_requires = [
-    "setuptools",
-    "wheel",
-    "numpy",
-    "pandas",
-    "requests",
-    "python-dotenv",
-    "PyYAML",
-    "logging"
-]
-python_requires = ">=3.7"
+urls = {
+    "Homepage": "https://github.com/build-club/praxis-mlops"
+}
 
-[tool.setuptools.scripts]
-console_scripts = [
-    "praxis-mlops = praxis_mlops.cli:main"
-]
+[project.scripts]
+praxis-mlops = "praxis_mlops.cli:main"
+
+[project.dependencies]
+numpy = "*"
+pandas = "*"
+requests = "*"
+python-dotenv = "*"
+PyYAML = "*"
+
+[project.optional-dependencies]
+setuptools = "*"
+wheel = "*"
+
+[project.python-requires]
+python = ">=3.9"
