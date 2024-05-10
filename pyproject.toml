@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=40.6.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+name = "praxis-mlops"
+version = "0.1.0"
+description = "A utility library for MLOps with virtual environment management and integrated logging."
+long_description = "file: README.md"
+long_description_content_type = "text/markdown"
+author = "Your Name"
+author_email = "your.email@example.com"
+url = "https://github.com/yourusername/praxis-mlops"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Build Tools",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11"
+]
+keywords = "mlops, mlflow, wandb, logging, environment"
+packages = ["."]
+install_requires = [
+    "setuptools",
+    "wheel",
+    "numpy",
+    "pandas",
+    "requests",
+    "python-dotenv",
+    "PyYAML",
+    "logging"
+]
+python_requires = ">=3.7"
+
+[tool.setuptools.scripts]
+console_scripts = [
+    "praxis-mlops = praxis_mlops.cli:main"
+]

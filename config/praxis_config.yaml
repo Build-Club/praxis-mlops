@@ -1,0 +1,31 @@
+project:
+  name: "mlops_project"  # Applies to all services
+
+logging:
+  level: "DEBUG"
+  log_to_console: true
+  log_to_file: true
+  log_filename: "mlops_utility.log"
+  log_format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+tracking:
+  mlflow:
+    enabled: true
+    tracking_uri: "http://localhost:5000"
+    experiment_name: "default_experiment"
+
+  wandb:
+    enabled: true
+    project_name: "{{ project.name }}"  # Referencing the consistent project name
+    entity: "your_username"
+    api_key: "<WANDB_API_KEY>"
+
+portkey:
+  enabled: false
+  api_url: "http://api.portkey.com"
+  api_key: "<PORTKEY_API_KEY>"
+
+weave:
+  enabled: true
+  project_name: "{{ project.name }}"  # Referencing the consistent project name
+  api_key: "<WEAVE_API_KEY>"
